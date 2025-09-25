@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alexandre Jeanneau — Progress Everyday</title>
-  <meta name="description" content="Portfolio-blog personnel d’Alexandre Jeanneau, progress everyday : sport, apprentissages, lectures. Design néon futuriste, système d’XP." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -19,51 +18,31 @@
                  radial-gradient(900px 600px at 90% 20%, rgba(0,187,249,.18), transparent 65%),
                  linear-gradient(180deg,var(--fond-alt),var(--fond));}
     a{color:var(--cyan);text-decoration:none}
-
-    /* HEADER */
     header{position:sticky;top:0;z-index:10;background:rgba(5,5,8,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{font-weight:800;letter-spacing:.5px}
     .links{display:flex;gap:14px}
     .links a{color:var(--gris)} .links a:hover{color:var(--blanc)}
-
-    /* HERO */
-    .hero{padding:72px 0;display:grid;grid-template-columns:1fr;gap:28px;place-items:center;text-align:center}
-    .title{font-size:clamp(34px,6vw,58px);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
-    .subtitle{font-size:18px;color:var(--gris);max-width:70ch;margin:0 auto}
-    .cta{margin-top:18px;display:flex;gap:14px;justify-content:center;align-items:center}
-
-    /* BUTTONS (soft glow) */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--blanc);font-weight:600;cursor:pointer;transition:transform .08s ease, background .2s ease}
-    .btn:active{transform:translateY(1px)}
-    .btn-primary{background:rgba(155,93,229,.12);border-color:rgba(155,93,229,.25)}
-    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.14)}
-
-    /* BORDER-TRACE ANIMATION — only when .btn-animated is added */
-    .btn-animated{position:relative;overflow:visible}
-    .btn-animated::before{content:"";position:absolute;inset:-2px;border-radius:12px;padding:2px;
-      background:conic-gradient(var(--violet) 0 20deg, transparent 20deg 360deg);
-      -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .12s ease}
-    .btn-animated:hover::before{opacity:.9;animation:ring 0.9s linear infinite}
+    .hero{padding:72px 0;text-align:center}
+    .title{font-size:clamp(34px,6vw,58px);font-weight:800;text-transform:uppercase}
+    .subtitle{font-size:18px;color:var(--gris);max-width:70ch;margin:12px auto}
+    .cta{margin-top:18px;display:flex;gap:14px;justify-content:center}
+    .btn{padding:14px 18px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--blanc);font-weight:600;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn::before{content:"";position:absolute;inset:-2px;border-radius:12px;padding:2px;background:conic-gradient(var(--violet) 0 20deg, transparent 20deg 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .12s ease}
+    .btn:hover::before{opacity:.9;animation:ring 0.9s linear infinite}
     @keyframes ring{to{transform:rotate(360deg)}}
-
-    /* SECTIONS & CARDS */
     section{padding:56px 0}
-    .section-title{font-size:26px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;margin-bottom:16px;text-align:center}
-    .section-sub{color:var(--gris);text-align:center;margin:-6px auto 22px;max-width:68ch}
-
+    .section-title{text-align:center;font-size:26px;font-weight:800;text-transform:uppercase;margin-bottom:16px}
+    .section-sub{text-align:center;color:var(--gris);margin-bottom:22px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:grid;gap:8px;min-height:120px}
-    .card h3{color:var(--cyan);margin:0 0 4px;font-size:18px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .card h3{color:var(--cyan);margin-bottom:8px}
     .card p{color:var(--gris)}
-
     .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .post{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-    .post h3{margin-bottom:6px;color:var(--violet)} .post small{color:var(--gris)}
-
-    /* XP */
+    .post h3{color:var(--violet)} .post small{color:var(--gris)}
     .xp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .xp-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
     .xp-title{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
@@ -73,9 +52,7 @@
     .xp-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
     .mini{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--blanc);cursor:pointer}
     .mini:hover{background:rgba(255,255,255,.06)}
-
     footer{margin-top:40px;border-top:1px solid var(--border);padding:20px 0;color:var(--gris);font-size:14px;text-align:center}
-
     @media(max-width:980px){.grid,.posts,.xp-grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -86,7 +63,7 @@
     <nav class="links">
       <a href="#lectures">Lectures</a>
       <a href="#sport">Sport</a>
-      <a href="#travail">Travail</a>
+      <a href="#objectifs">Objectifs</a>
       <a href="#xp">XP</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
@@ -95,106 +72,108 @@
 </header>
 
 <main class="wrap">
-  <!-- HERO -->
   <section class="hero">
     <h1 class="title">Progress Everyday</h1>
-    <p class="subtitle">Je m’appelle <strong>Alexandre Jeanneau</strong>, 27 ans. J’ouvre ici un journal public de progression — dans le sport et l’apprentissage — pour cultiver la rigueur et la curiosité, jour après jour. Mes inspirations, mes notes de lecture, mes routines : tout est réuni au même endroit.</p>
+    <p class="subtitle">Je m’appelle <strong>Alexandre Jeanneau</strong>, 27 ans. Ce site retrace ma progression — sport, apprentissages, lectures — avec discipline et curiosité.</p>
     <div class="cta">
-      <a class="btn btn-primary btn-animated" href="#xp">Voir ma progression</a>
-      <a class="btn btn-ghost btn-animated" href="#lectures">Explorer mes lectures</a>
-    </div>
-    <div class="grid" style="margin-top:24px">
-      <div class="card"><h3>📚 Lectures</h3><p>Romans, histoire, psychologie, neurosciences — ce que chaque œuvre m’apporte.</p></div>
-      <div class="card"><h3>🏋️ Sport</h3><p>Musculation, boxe anglaise, course — constance et plaisir d’apprendre par le corps.</p></div>
-      <div class="card"><h3>💼 Travail</h3><p>Compétences, projets et façons de travailler plus efficacement.</p></div>
+      <a class="btn" href="#objectifs">Mes objectifs</a>
+      <a class="btn" href="#lectures">Explorer mes lectures</a>
     </div>
   </section>
 
-  <!-- XP / GAMIFICATION -->
-  <section id="xp">
-    <h2 class="section-title">Progression (XP)</h2>
-    <p class="section-sub">Chaque action rapporte des points. Tous les 100 XP → <strong>+1 niveau</strong>. Les données restent sur votre appareil (localStorage). Utilisez <em>⟲ Annuler</em> en cas d’erreur.</p>
-
-    <div class="post" style="margin-bottom:18px; padding:18px">
-      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center">
-        <button class="mini" id="undoBtn">⟲ Annuler dernière action</button>
-        <button class="mini" id="resetBtn">↺ Réinitialiser XP</button>
-        <span class="xp-sub">Historique local : <span id="histCount">0</span> actions</span>
+  <!-- Objectifs & Focus -->
+  <section id="objectifs">
+    <h2 class="section-title">Objectifs & Focus</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>HYROX 2026</h3>
+        <p><strong>Intention :</strong> préparer HYROX Belgique 2026.<br>
+        <strong>Objectif :</strong> atteindre au moins la 3ᵉ place.<br>
+        <strong>Indicateurs :</strong> temps épreuves standards, volume hebdo, tests bimensuels.<br>
+        <strong>Jalon :</strong> choisir une compétition qualificative.</p>
       </div>
-      <div style="margin-top:14px">
-        <canvas id="xpChart" height="220" aria-label="Courbes d’évolution XP (Sport vs Lectures)"></canvas>
+      <div class="card">
+        <h3>Boxe anglaise</h3>
+        <p><strong>Intention :</strong> progresser en technique et sparring.<br>
+        <strong>Indicateurs :</strong> thèmes/semaine, nombre de rounds, review vidéo.<br>
+        <strong>Jalon :</strong> mini-cycle technique de 4 semaines.</p>
+      </div>
+      <div class="card">
+        <h3>Cap pro & finances</h3>
+        <p><strong>Intention :</strong> explorer ma vocation.<br>
+        <strong>Objectif financier :</strong> épargner 20% de mes revenus sur le long terme.<br>
+        <strong>Jalon :</strong> suivi mensuel de l’épargne et ajustements.</p>
       </div>
     </div>
+  </section>
 
+  <!-- Lectures -->
+  <section id="lectures">
+    <h2 class="section-title">Lectures</h2>
+    <div class="posts">
+      <article class="post">
+        <h3>Le Comte de Monte‑Cristo</h3>
+        <small>Roman</small>
+        <p>Un récit sur la patience, la justice et la transformation. Le parcours d’Edmond Dantès me rappelle que l’endurance ouvre des chemins impossibles.</p>
+      </article>
+      <article class="post">
+        <h3>Sapiens</h3>
+        <small>Histoire</small>
+        <p>Comment les fictions collectives façonnent nos sociétés et nos choix. Cela m’aide à replacer mes objectifs dans une perspective longue.</p>
+      </article>
+      <article class="post">
+        <h3>Robert Sapolsky — Le déterminisme</h3>
+        <small>Neurosciences</small>
+        <p>Un regard exigeant sur les influences biologiques et sociales. J’y apprends à créer un environnement qui favorise de bons choix.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sport -->
+  <section id="sport">
+    <h2 class="section-title">Routine sportive</h2>
+    <div class="grid">
+      <div class="card"><h3>Programme</h3><p>Musculation, boxe, course : répartition flexible.</p></div>
+      <div class="card"><h3>Objectifs</h3><p>Constance hebdo, technique propre, plaisir de progresser.</p></div>
+      <div class="card"><h3>Journal</h3><p>Notes après chaque séance : ressenti, points techniques.</p></div>
+    </div>
+  </section>
+
+  <!-- XP -->
+  <section id="xp">
+    <h2 class="section-title">Progression (XP)</h2>
+    <p class="section-sub">Chaque action rapporte des points. Tous les 100 XP = +1 niveau. Données stockées localement (localStorage).</p>
+    <div style="margin-bottom:18px; text-align:center">
+      <button class="mini" id="undoBtn">⟲ Annuler dernière action</button>
+      <button class="mini" id="resetBtn">↺ Réinitialiser XP</button>
+      <span class="xp-sub">Historique : <span id="histCount">0</span> actions</span>
+    </div>
     <h3 class="section-title" style="color:var(--cyan);margin-top:6px">Sport</h3>
     <div class="xp-grid" id="xp-sport"></div>
-
     <h3 class="section-title" style="color:var(--violet);margin-top:28px">Lectures</h3>
     <div class="xp-grid" id="xp-lectures"></div>
   </section>
 
-  <!-- LECTURES -->
-  <section id="lectures">
-    <h2 class="section-title">Lectures & inspirations</h2>
-    <p class="section-sub">Un résumé personnel (4–5 lignes) pour chaque œuvre, et ce que j’en retiens dans ma pratique quotidienne.</p>
-    <div class="posts">
-      <article class="post">
-        <h3>Le Comte de Monte‑Cristo — Alexandre Dumas</h3>
-        <small>Roman</small>
-        <p>Roman phare de ma bibliothèque. J’y vois une méditation sur la patience, la justice et la transformation intérieure. Le parcours d’Edmond Dantès me rappelle que l’endurance et la clarté d’intention ouvrent des chemins impossibles. Au‑delà de la vengeance, c’est un récit d’auto‑maîtrise et de renaissance qui nourrit mon idée du “progress everyday”.</p>
-      </article>
-      <article class="post">
-        <h3>Sapiens — Yuval Noah Harari</h3>
-        <small>Histoire</small>
-        <p>Comment les fictions collectives façonnent nos sociétés et nos choix individuels. Une invitation à replacer mes objectifs dans une perspective longue et à questionner mes croyances.</p>
-      </article>
-      <article class="post">
-        <h3>Robert Sapolsky — Le déterminisme</h3>
-        <small>Neurosciences / Psychologie</small>
-        <p>Un regard exigeant sur les influences biologiques et sociales du comportement. Cela m’aide à concevoir mes routines non comme des preuves de volonté pure, mais comme des environnements qui facilitent de bons choix.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SPORT -->
-  <section id="sport">
-    <h2 class="section-title">Routine sportive</h2>
-    <div class="grid">
-      <div class="card"><h3>Programme</h3><p>Musculation, boxe, course : répartition flexible selon l’énergie et le calendrier.</p></div>
-      <div class="card"><h3>Objectifs</h3><p>Constance hebdomadaire, technique propre, plaisir de progresser sans brûler les étapes.</p></div>
-      <div class="card"><h3>Journal</h3><p>Notes courtes après séance (ressenti, points techniques, ajustements).</p></div>
-    </div>
-  </section>
-
-  <!-- TRAVAIL & COMPÉTENCES -->
-  <section id="travail">
-    <h2 class="section-title">Travail & compétences</h2>
-    <div class="grid">
-      <div class="card"><h3>Compétence A</h3><p>Exemple d’application concrète.</p></div>
-      <div class="card"><h3>Compétence B</h3><p>Exemple d’application concrète.</p></div>
-      <div class="card"><h3>Compétence C</h3><p>Exemple d’application concrète.</p></div>
-    </div>
-  </section>
-
-  <!-- BLOG -->
+  <!-- Blog / Journal -->
   <section id="blog">
     <h2 class="section-title">Carnet de bord</h2>
     <div class="posts">
-      <article class="post"><h3>Premier billet</h3><small>JJ mois AAAA</small><p>Pourquoi j’ouvre ce site et ce que j’attends de cette démarche quotidienne.</p></article>
-      <article class="post"><h3>Réflexion sport</h3><small>JJ mois AAAA</small><p>Ce que la boxe m’apprend sur la concentration et le relâchement.</p></article>
-      <article class="post"><h3>Notes de lecture</h3><small>JJ mois AAAA</small><p>Comment un passage de Monte‑Cristo m’aide à structurer mes semaines.</p></article>
+      <article class="post">
+        <h3>25 septembre 2025 — Phase de relance</h3>
+        <p>Depuis un mois, j’ai relancé mes routines sportives : reprise des charges, régularité, meilleur sommeil et plus d’énergie. Lecture de Sapolsky en parallèle : j’y trouve des repères pour structurer mes environnements et faciliter de bons choix.</p>
+      </article>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- Contact -->
   <section id="contact">
     <h2 class="section-title">Contact</h2>
-    <div class="post" style="padding:18px">
+    <div class="card">
       <form onsubmit="event.preventDefault(); alert('Merci ! Ceci est une démo.');" style="display:grid;gap:12px;max-width:520px;margin:0 auto">
         <input type="text" placeholder="Votre nom" required style="padding:12px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--blanc)"/>
         <input type="email" placeholder="Votre email" required style="padding:12px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--blanc)"/>
         <textarea placeholder="Votre message" style="padding:12px;min-height:120px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--blanc)"></textarea>
-        <div style="display:flex;justify-content:center"><button class="btn btn-primary btn-animated" type="submit">Envoyer</button></div>
+        <div style="display:flex;justify-content:center"><button class="btn" type="submit">Envoyer</button></div>
       </form>
     </div>
   </section>
@@ -205,15 +184,14 @@
 <script>
   document.getElementById('y').textContent=new Date().getFullYear()
 
-  // ====== Données XP + Historique (Annuler) ======
-  // Pour réinitialiser proprement, on change la clé de stockage (V2) → tout repart à 0 par défaut
+  // ====== Données XP + Historique ======
   const defaultData={ sport:{Musculation:0,Boxe:0,Course:0}, lectures:{Roman:0,Histoire:0,Psychologie:0,Neurologie:0,'Dév perso':0} };
-  const storeKey='xpDataV2';
-  const historyKey='xpHistoryV2';
+  const storeKey='xpDataStable';
+  const historyKey='xpHistoryStable';
   const xp=JSON.parse(localStorage.getItem(storeKey)||JSON.stringify(defaultData));
   const history=JSON.parse(localStorage.getItem(historyKey)||'[]');
 
-  const LEVEL_STEP=100; // 100 XP par niveau
+  const LEVEL_STEP=100;
   const save=()=>{localStorage.setItem(storeKey,JSON.stringify(xp));localStorage.setItem(historyKey,JSON.stringify(history));}
 
   const addXP=(group,key,amount)=>{ xp[group][key]=(xp[group][key]||0)+amount; history.push({t:Date.now(),group,key,delta:amount}); save(); render(); }
@@ -242,47 +220,6 @@
     </div>`;
   }
 
-  // ====== Graphique (canvas natif) ======
-  const chartEl=document.getElementById('xpChart');
-  const ctx=chartEl.getContext('2d');
-
-  function getSeries(){
-    const pts=[]; let s=0,l=0; const sorted=[...history].sort((a,b)=>a.t-b.t);
-    sorted.forEach(h=>{ if(h.group==='sport') s+=h.delta; else if(h.group==='lectures') l+=h.delta; pts.push({t:h.t, sport:s, lectures:l}); });
-    if(pts.length===0){ const now=Date.now(); pts.push({t:now, sport:0, lectures:0}); }
-    return pts;
-  }
-
-  let lastGeom=null; // pour transition
-  function drawChart(){
-    const w=chartEl.width=chartEl.clientWidth; const h=chartEl.height=220;
-    const pts=getSeries();
-    const pad=30;
-    const xmin=pts[0].t, xmax=pts[pts.length-1].t;
-    const ymin=Math.min(0, ...pts.map(p=>Math.min(p.sport,p.lectures)));
-    const ymax=Math.max(10, ...pts.map(p=>Math.max(p.sport,p.lectures)));
-    const x=(t)=> pad + (w-2*pad) * ((t - xmin)/(xmax - xmin || 1));
-    const y=(v)=> h - pad - (h-2*pad) * ((v - ymin)/((ymax - ymin)||1));
-
-    const target={ sport: pts.map(p=>({x:x(p.t), y:y(p.sport)})), lectures: pts.map(p=>({x:x(p.t), y:y(p.lectures)})) };
-    const start = lastGeom || target;
-    const t0=performance.now();
-    function frame(now){
-      const d=Math.min(1,(now-t0)/400);
-      ctx.clearRect(0,0,w,h);
-      // axes
-      ctx.strokeStyle='rgba(255,255,255,.15)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(pad, pad); ctx.lineTo(pad, h-pad); ctx.lineTo(w-pad, h-pad); ctx.stroke();
-      const lerp=(a,b)=>a+(b-a)*d;
-      const draw=(from,to,color)=>{ ctx.beginPath(); to.forEach((p,i)=>{ const fx=from[i]?.x ?? p.x, fy=from[i]?.y ?? p.y; const ix=lerp(fx,p.x), iy=lerp(fy,p.y); if(i===0) ctx.moveTo(ix,iy); else ctx.lineTo(ix,iy);}); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke(); };
-      draw(start.sport,target.sport,'rgba(0,245,212,0.95)');
-      draw(start.lectures,target.lectures,'rgba(155,93,229,0.95)');
-      ctx.fillStyle='rgba(255,255,255,.8)'; ctx.font='12px Inter'; ctx.fillText('Sport', pad+6, pad+14);
-      ctx.fillStyle='rgba(176,176,176,.9)'; ctx.fillText('Lectures', pad+60, pad+14);
-      if(d<1) requestAnimationFrame(frame); else lastGeom=target;
-    }
-    requestAnimationFrame(frame);
-  }
-
   function render(){
     const sportEl=document.getElementById('xp-sport');
     const lecEl=document.getElementById('xp-lectures');
@@ -290,14 +227,7 @@
     sportEl.innerHTML=''; lecEl.innerHTML='';
     Object.keys(xp.sport).forEach(k=> sportEl.insertAdjacentHTML('beforeend',cardTemplate('sport',k,'var(--cyan)')));
     Object.keys(xp.lectures).forEach(k=> lecEl.insertAdjacentHTML('beforeend',cardTemplate('lectures',k,'var(--violet)')));
-    histCount.textContent=history.length; drawChart();
-  }
+    if(histCount) histCount.textContent=history.length;
+ 
 
-  document.getElementById('undoBtn').addEventListener('click',undo);
-  document.getElementById('resetBtn').addEventListener('click',resetAll);
-  window.addEventListener('resize', drawChart);
-  render();
-</script>
-</body>
-</html>
 
